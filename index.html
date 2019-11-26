@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        textarea {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+    <!-- https://cryptojs.gitbook.io/docs/ -->
+    <script src="node_modules/crypto-js/crypto-js.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            let inputEl = document.querySelector('#input'),
+                outputEl = document.querySelector('#output');
+
+            inputEl.addEventListener('input', (e) => {
+                var encrypted = CryptoJS.SHA1(e.target.value);
+
+                outputEl.value = encrypted;
+            });
+        });
+    </script>
+</head>
+<body>
+    <main>
+        <fieldset>
+            <legend>input</legend>
+            <textarea id="input"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>output</legend>
+            <textarea id="output"></textarea>
+        </fieldset>
+    </main>
+</body>
